@@ -1,0 +1,35 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://user:password123@localhost:8010/eureka/
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          #git仓库地址
+          uri: https://github.com/lustresMin/communication-config-server
+          #仓库路径
+          search-paths: spring-cloud-config-communication
+#          username: lustres@sina.com
+#          password: mikjn130
+      label: master
+#  security:
+#    user:
+#      name: communication
+#      password: communication
+#密钥
+#encrypt:
+#  key-store:
+#    alias: communication
+#    password: communication
+#    secret: communication
+#    location: classpath:server.jks
