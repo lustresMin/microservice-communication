@@ -25,6 +25,7 @@
         <module>microservice-provider-friends-circle-comment</module>
         <module>microservice-provider-friends-circle-album</module>
         <module>microservice-provider-friends-circle-timeline</module>
+        <module>microservice-config-server</module>
     </modules>
 
     <properties>
