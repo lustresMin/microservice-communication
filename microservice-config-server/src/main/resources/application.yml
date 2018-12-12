@@ -20,7 +20,7 @@ spring:
           #仓库路径
           search-paths: spring-cloud-config-communication
 #          username: lustres@sina.com
-#          password: mikjn130
+#          password: mikjN130
       label: master
 #  security:
 #    user:

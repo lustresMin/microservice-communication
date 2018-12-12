@@ -1,0 +1,29 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:password123@localhost:39999/eureka/
+    eureka-server-read-timeout-seconds: 60000
+    eureka-server-connect-timeout-seconds: 60000
+
+server:
+  port: 31000
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      enabled: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+        enabled: true
+      profile: prod
+      #失败快速相应
+      fail-fast: true
+      label: master
+      name: ${spring.application.name},discovery-rabbitmq
+
