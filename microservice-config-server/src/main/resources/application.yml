@@ -19,8 +19,8 @@ spring:
           uri: https://github.com/lustresMin/communication-config-server
           #仓库路径
           search-paths: spring-cloud-config-communication
-#          username: lustres@sina.com
-#          password: mikjN130
+          username: lustres@sina.com
+          password: mikjN130
       label: master
 #  security:
 #    user:

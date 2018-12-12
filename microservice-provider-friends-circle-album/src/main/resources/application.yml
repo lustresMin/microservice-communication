@@ -1,5 +1,5 @@
 server:
-  port: 8002
+  port: 8001
 spring:
   application:
     name: provider-album
@@ -8,18 +8,8 @@ spring:
       discovery:
         service-id: config-server
         enabled: true
-      profile: prod
+      profile: dev
       #失败快速相应
       fail-fast: true
       label: master
       name: ${spring.application.name},discovery-rabbitmq
-
-
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://user:password123@localhost:8010/eureka/

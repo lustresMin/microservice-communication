@@ -2,23 +2,29 @@ package com.own.microservice.discovery.rabbitmq.service.Impl;
 
 import com.own.microservice.discovery.rabbitmq.common.ExchangeEnum;
 import com.own.microservice.discovery.rabbitmq.common.QueueEnum;
-import com.own.microservice.discovery.rabbitmq.service.QueueMessageService;
+import com.own.microservice.discovery.rabbitmq.service.queueMessageService;
+import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.UUID;
 
+/**
+ * @author Administrator
+ */
 @Component
-public class QueueMessageServiceImpl implements QueueMessageService {
+public class QueueMessageServiceImpl implements queueMessageService {
 
-    @Autowired
+    @Resource
     private RabbitTemplate rabbitTemplate;
+    @Resource
+    private RabbitMessagingTemplate rabbitMessagingTemplate;
 
 
     @Override
-    public void send(Object message, ExchangeEnum exchangeEnum, QueueEnum queueEnum) throws Exception {
+    public void send(Object message, ExchangeEnum exchangeEnum, QueueEnum queueEnum){
         //设置回调为当前类对象
         rabbitTemplate.setConfirmCallback(this);
         //构建回调id为uuid

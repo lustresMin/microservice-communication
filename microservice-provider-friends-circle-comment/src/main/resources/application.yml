@@ -1,5 +1,5 @@
 server:
-  port: 8003
+  port: 8002
 spring:
   application:
     name: provider-comment
@@ -8,17 +8,8 @@ spring:
       discovery:
         service-id: config-server
         enabled: true
-      profile: prod
+      profile: dev
       #失败快速相应
       fail-fast: true
       label: master
-      name: ${spring.application.name},application-rabbitmq
-
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://user:password123@localhost:8010/eureka/
+      name: ${spring.application.name},discovery-rabbitmq

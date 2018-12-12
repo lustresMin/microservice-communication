@@ -11,7 +11,7 @@ import org.springframework.amqp.rabbit.support.CorrelationData;
  * @createDate:     2018/7/19 15:08
  * @version:        1.0
  */
-public interface QueueMessageService extends RabbitTemplate.ConfirmCallback {
+public interface queueMessageService extends RabbitTemplate.ConfirmCallback {
     /**
      * 发送消息到rabbitmq消息队列
      * @param message 消息内容
@@ -19,7 +19,7 @@ public interface QueueMessageService extends RabbitTemplate.ConfirmCallback {
      * @param queueEnum 队列配置枚举
      * @throws Exception
      */
-    public void send(Object message, ExchangeEnum exchangeEnum, QueueEnum queueEnum) throws Exception;
+    void send(Object message, ExchangeEnum exchangeEnum, QueueEnum queueEnum);
 
 
 }

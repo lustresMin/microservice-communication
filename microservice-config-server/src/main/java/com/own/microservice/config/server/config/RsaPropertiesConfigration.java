@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
 
-//@Configuration
+@Configuration
 public class RsaPropertiesConfigration extends RsaProperties  {
     @Bean
     public RsaProperties rsaProperties(){
