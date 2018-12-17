@@ -2,7 +2,10 @@ package com.own.microservice.discovery.rabbitmq.service.Impl;
 
 import com.own.microservice.discovery.rabbitmq.common.ExchangeEnum;
 import com.own.microservice.discovery.rabbitmq.common.QueueEnum;
-import com.own.microservice.discovery.rabbitmq.service.queueMessageService;
+import com.own.microservice.discovery.rabbitmq.service.QueueMessageService;
+import com.rabbitmq.client.Return;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
@@ -14,13 +17,12 @@ import java.util.UUID;
 /**
  * @author Administrator
  */
+@Slf4j
 @Component
-public class QueueMessageServiceImpl implements queueMessageService {
+public class QueueMessageServiceImpl implements QueueMessageService {
 
     @Resource
     private RabbitTemplate rabbitTemplate;
-    @Resource
-    private RabbitMessagingTemplate rabbitMessagingTemplate;
 
 
     @Override
@@ -41,11 +43,12 @@ public class QueueMessageServiceImpl implements queueMessageService {
      */
     @Override
     public void confirm(CorrelationData correlationData, boolean b, String s) {
-        System.out.println(" 回调id:" + correlationData.getId());
+        log.info(" 回调id:" + correlationData.getId());
         if (b) {
-            System.out.println("消息发送成功");
+			log.info("消息发送成功");
         } else {
-            System.out.println("消息发送失败:" + s);
+			log.info("消息发送失败:" + s);
         }
     }
+
 }

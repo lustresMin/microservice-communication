@@ -13,3 +13,4 @@ spring:
       fail-fast: true
       label: master
       name: ${spring.application.name},discovery-rabbitmq
+  
