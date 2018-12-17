@@ -1,5 +1,6 @@
 package com.own.microservice.consumer.web.service;
 
+import com.own.microservice.common.jackson.Result;
 import com.own.microservice.consumer.web.config.FeignConfig;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public interface TestRemoteService {
      * @return
      */
     @PostMapping("findCommentsByActivityId")
-    Result findCommentsByActivityId(
+	Result findCommentsByActivityId(
 			@RequestParam(value = "page") Integer page,
 			@RequestParam(value = "size") Integer size,
 			@RequestParam(value = "sort") String sort,

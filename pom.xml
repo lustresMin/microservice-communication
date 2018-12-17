@@ -19,6 +19,7 @@
     </parent>
 
     <modules>
+        <module>microservice-common</module>
         <module>microservice-discovery-eureka</module>
         <module>microservice-discovery-rabbitmq</module>
         <module>microservice-provider-friends-circle-release</module>
