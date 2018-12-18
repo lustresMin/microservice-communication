@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
  * @date 2018/12/18 11:11
  * @description 服务过滤配置
  */
-@Slf4j
-@Configuration
+//@Slf4j
+//@Configuration
 public class MyZuulFilter extends ZuulFilter {
 
 	/**
@@ -64,7 +64,7 @@ public class MyZuulFilter extends ZuulFilter {
 		RequestContext ctx = RequestContext.getCurrentContext();
 		//获取请求域
 		HttpServletRequest request = ctx.getRequest();
-		log.info(String.format("%s >>> %s", request.getMethod(), request.getRequestURL().toString()));
+//		log.info(String.format("%s >>> %s", request.getMethod(), request.getRequestURL().toString()));
 
 		//具体业务逻辑
 		// todo
