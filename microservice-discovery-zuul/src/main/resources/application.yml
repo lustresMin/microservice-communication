@@ -1,0 +1,23 @@
+server:
+  port: 8011
+spring:
+  application:
+    name: discovery-zuul
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+        enabled: true
+      profile: dev
+      #失败快速相应
+      fail-fast: true
+      label: master
+      name: ${spring.application.name}
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: provider-album
+    api-b:
+      path: /api-b/**
+      serviceId: provider-comment

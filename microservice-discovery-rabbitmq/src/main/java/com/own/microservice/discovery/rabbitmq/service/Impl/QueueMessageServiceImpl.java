@@ -3,12 +3,9 @@ package com.own.microservice.discovery.rabbitmq.service.Impl;
 import com.own.microservice.discovery.rabbitmq.common.ExchangeEnum;
 import com.own.microservice.discovery.rabbitmq.common.QueueEnum;
 import com.own.microservice.discovery.rabbitmq.service.QueueMessageService;
-import com.rabbitmq.client.Return;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.core.Message;
-import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
