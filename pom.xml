@@ -23,6 +23,7 @@
         <module>microservice-discovery-eureka</module>
         <module>microservice-discovery-rabbitmq</module>
         <module>microservice-discovery-zuul</module>
+        <module>microservice-discovery-gateway</module>
         <module>microservice-provider-friends-circle-release</module>
         <module>microservice-provider-friends-circle-comment</module>
         <module>microservice-provider-friends-circle-album</module>

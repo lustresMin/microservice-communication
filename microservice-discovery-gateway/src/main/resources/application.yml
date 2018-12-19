@@ -1,0 +1,36 @@
+server:
+  port: 8012
+spring:
+  application:
+    name: discovery-gateway
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+        enabled: true
+      profile: dev
+      #失败快速相应
+      fail-fast: true
+      label: master
+      name: ${spring.application.name}
+    gateway:
+      routes:
+#      自定义的路由 ID，保持唯一
+        - id: neo_route
+#      目标服务地址
+          uri: http://www.ityouknow.com
+          predicates:
+          - Path=/spring-cloud
+# 上面这段配置的意思是，配置了一个 id 为 neo_route 的路由规则，当访问地址 http://localhost:8080/spring-cloud时会自动转发到地址：http://www.ityouknow.com/spring-cloud。
+#          - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
+#上面的示例是指，请求时间在 2018年1月20日6点6分6秒之后的所有请求都转发到地址http://ityouknow.com。+08:00是指时间和UTC时间相差八个小时，时间地区为Asia/Shanghai
+# 详细介绍：https://mp.weixin.qq.com/s/qySjzQ8f-pYwWKPE_8BhVg
+# 通过时间匹配 1、After 2、Before 3、Between
+# 通过 Cookie 匹配
+# 通过 Header 属性匹配
+# 通过 Host 匹配
+# 通过请求方式匹配
+# 通过请求路径匹配
+# 通过请求参数匹配
+# 通过请求 ip 地址进行匹配
+# 组合使用
